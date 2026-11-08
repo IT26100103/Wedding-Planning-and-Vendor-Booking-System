@@ -13,10 +13,8 @@
         <a href="${pageContext.request.contextPath}/wedding" class="nav-item">My Wedding</a>
         <a href="${pageContext.request.contextPath}/venues" class="nav-item">Venues</a>
         <a href="${pageContext.request.contextPath}/vendors" class="nav-item">Vendors</a>
-        <a href="${pageContext.request.contextPath}/bookings" class="nav-item">Bookings</a>
         <a href="${pageContext.request.contextPath}/guests" class="nav-item">Guests</a>
         <a href="${pageContext.request.contextPath}/reviews" class="nav-item">Reviews</a>
-        <a href="${pageContext.request.contextPath}/budget" class="nav-item">Budget</a>
     </nav>
 
     <div class="topbar-user">
@@ -43,4 +41,4 @@
         </c:choose>
     </div>
 </header>
-<a class="book-tab" href="${pageContext.request.contextPath}/bookings?action=new">✦ Book Wedding</a>
+<a class="book-tab" href="${pageContext.request.contextPath}/wedding">✦ Plan Wedding</a>

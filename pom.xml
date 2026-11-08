@@ -3,34 +3,38 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wedding</groupId>
-    <artifactId>06-feedback-review-management</artifactId>
+    <artifactId>wedding-system</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Feedback and Review Management - Vows &amp; Vendors</name>
-    <description>Team Member 6 - Reviews &amp; Feedback Management</description>
+    <name>Wedding Planning and Vendor Booking System - Vows &amp; Vendors</name>
+    <description>Vows &amp; Vendors - Comprehensive Wedding Planning, Vendor Booking and Guest RSVP Management Platform</description>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <port>8085</port>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>6.0.0</version>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-web-api</artifactId>
+            <version>10.0.0</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
             <version>3.0.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
@@ -39,7 +43,8 @@
     </dependencies>
 
     <build>
-        <finalName>06-feedback-review-management</finalName>
+        <finalName>wedding-system</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -49,17 +54,19 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.eclipse.jetty.ee10</groupId>
                 <artifactId>jetty-ee10-maven-plugin</artifactId>
                 <version>12.0.16</version>
                 <configuration>
                     <httpConnector>
-                        <port>8086</port>
+                        <port>${port}</port>
                     </httpConnector>
                     <scan>1</scan>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 </project>

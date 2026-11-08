@@ -1,0 +1,3 @@
+VN001|Grand Hall|Colombo|400|30000.0|INDOOR|true
+VN002|Rose Ballroom|Kandy|250|22000.0|INDOOR|false
+VN003|Garden Lawn|Galle|300|20000.0|OUTDOOR|true

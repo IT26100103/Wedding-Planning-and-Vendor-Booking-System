@@ -1,5 +1,21 @@
 package com.wedding.dao;
 
+/**
+ * ============================================================================
+ * DATA ACCESS OBJECT (DAO): UserDao
+ * ============================================================================
+ * ARCHITECTURAL PATTERN: DAO (Data Access Object)
+ * - Isolates data persistence logic from business and presentation layers.
+ * - Manages read, write, update, delete (CRUD), and authentication operations
+ *   for User accounts stored in '%USERPROFILE%/wedding-data/users.txt'.
+ * - Handles polymorphic instantiation of AdminUser vs RegularUser from records.
+ * - Thread-safe access via centralized FileUtil.
+ *
+ * @author Wedding Planning System Team
+ * @version 1.0
+ */
+
+
 import com.wedding.model.AdminUser;
 import com.wedding.model.RegularUser;
 import com.wedding.model.User;
@@ -59,7 +75,15 @@ public class UserDao {
     // READ (search by username)
     public User findByUsername(String username) {
         for (User u : findAll()) {
-            if (u.getUsername().equals(username)) return u;
+            if (u.getUsername().equalsIgnoreCase(username)) return u;
+        }
+        return null;
+    }
+
+    // READ (search by email)
+    public User findByEmail(String email) {
+        for (User u : findAll()) {
+            if (u.getEmail().equalsIgnoreCase(email)) return u;
         }
         return null;
     }
@@ -90,7 +114,7 @@ public class UserDao {
         return false;
     }
 
-    // Next ID generator
+    // Next ID generator: U001, U002 ... or A001, A002 ...
     public String nextId(String role) {
         String prefix = "ADMIN".equalsIgnoreCase(role) ? "A" : "U";
         int max = 0;
@@ -106,8 +130,11 @@ public class UserDao {
     }
 
     // LOGIN
-    public User login(String username, String password) {
-        User u = findByUsername(username);
+    public User login(String usernameOrEmail, String password) {
+        User u = findByUsername(usernameOrEmail);
+        if (u == null) {
+            u = findByEmail(usernameOrEmail);
+        }
         if (u != null && u.getPassword().equals(password)) return u;
         return null;
     }

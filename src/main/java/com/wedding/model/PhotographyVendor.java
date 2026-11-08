@@ -7,17 +7,11 @@ public class PhotographyVendor extends Vendor {
     }
 
     @Override
-    public String getCategory() { 
-        return "PHOTOGRAPHY"; 
-    }
+    public String getCategory() { return "PHOTOGRAPHY"; }
 
     @Override
-    public double calculateCost(int guests) {
-        return getBasePrice(); // Fixed package price
-    }
+    public double calculateCost(int guests) { return getBasePrice(); }   // same price for any guest count
 
     @Override
-    public String toFileString() { 
-        return baseFields() + "|PHOTOGRAPHY"; 
-    }
+    public String toFileString() { return baseFields() + "|PHOTOGRAPHY"; }
 }

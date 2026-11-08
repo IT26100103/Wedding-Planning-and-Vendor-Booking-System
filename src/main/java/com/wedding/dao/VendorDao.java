@@ -1,5 +1,20 @@
 package com.wedding.dao;
 
+/**
+ * ============================================================================
+ * DATA ACCESS OBJECT (DAO): VendorDao
+ * ============================================================================
+ * ARCHITECTURAL PATTERN: DAO (Data Access Object)
+ * - Manages storage and retrieval of wedding service vendors (Catering, Photography).
+ * - Reads/writes to flat-file storage: '%USERPROFILE%/wedding-data/vendors.txt'.
+ * - Dynamically constructs CateringVendor vs PhotographyVendor instances.
+ * - Supports category filtering, keyword searching, and unique ID generation (V001, V002).
+ *
+ * @author Wedding Planning System Team
+ * @version 1.0
+ */
+
+
 import com.wedding.model.CateringVendor;
 import com.wedding.model.PhotographyVendor;
 import com.wedding.model.Vendor;
@@ -71,7 +86,7 @@ public class VendorDao {
         return null;
     }
 
-    // Next free ID
+    // Next free ID: V001, V002 ...
     public String nextId() {
         int max = 0;
         for (Vendor v : findAll()) {

@@ -84,20 +84,6 @@ public class VenueDao {
         return null;
     }
 
-    // Next free ID
-    public String nextId() {
-        int max = 0;
-        for (Venue v : findAll()) {
-            if (v.getId() != null && v.getId().startsWith("VN")) {
-                try {
-                    int num = Integer.parseInt(v.getId().substring(2));
-                    if (num > max) max = num;
-                } catch (NumberFormatException ignored) {}
-            }
-        }
-        return String.format("VN%03d", max + 1);
-    }
-
     // UPDATE
     public boolean update(Venue updated) {
         List<Venue> venues = findAll();

@@ -9,9 +9,9 @@
             <a href="${pageContext.request.contextPath}/">Home</a>
             <a href="${pageContext.request.contextPath}/venues">Venues</a>
             <a href="${pageContext.request.contextPath}/vendors">Vendors</a>
-            <a href="${pageContext.request.contextPath}/packages">Packages</a>
-            <a href="${pageContext.request.contextPath}/contact">Contact Us</a>
             <a href="${pageContext.request.contextPath}/guests">Guests RSVP</a>
+            <a href="${pageContext.request.contextPath}/reviews">Reviews</a>
+            <a href="${pageContext.request.contextPath}/wedding">My Wedding</a>
         </div>
     </div>
     <div class="footer-bottom">

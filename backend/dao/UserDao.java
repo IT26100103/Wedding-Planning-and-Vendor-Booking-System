@@ -1,5 +1,21 @@
 package com.wedding.dao;
 
+/**
+ * ============================================================================
+ * DATA ACCESS OBJECT (DAO): UserDao
+ * ============================================================================
+ * ARCHITECTURAL PATTERN: DAO (Data Access Object)
+ * - Isolates data persistence logic from business and presentation layers.
+ * - Manages read, write, update, delete (CRUD), and authentication operations
+ *   for User accounts stored in '%USERPROFILE%/wedding-data/users.txt'.
+ * - Handles polymorphic instantiation of AdminUser vs RegularUser from records.
+ * - Thread-safe access via centralized FileUtil.
+ *
+ * @author Wedding Planning System Team
+ * @version 1.0
+ */
+
+
 import com.wedding.model.AdminUser;
 import com.wedding.model.RegularUser;
 import com.wedding.model.User;
@@ -90,7 +106,7 @@ public class UserDao {
         return false;
     }
 
-    // Next ID generator
+    // Next ID generator: U001, U002 ... or A001, A002 ...
     public String nextId(String role) {
         String prefix = "ADMIN".equalsIgnoreCase(role) ? "A" : "U";
         int max = 0;

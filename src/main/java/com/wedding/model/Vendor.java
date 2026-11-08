@@ -15,28 +15,15 @@ public abstract class Vendor {
         this.basePrice = basePrice;
     }
 
-    public String getId() { 
-        return id; 
-    }
-    public String getName() { 
-        return name; 
-    }
-    public void setName(String name) { 
-        this.name = name; 
-    }
-    public String getPhone() { 
-        return phone; 
-    }
-    public void setPhone(String phone) { 
-        this.phone = phone; 
-    }
-    public double getBasePrice() { 
-        return basePrice; 
-    }
-    public void setBasePrice(double basePrice) { 
-        this.basePrice = basePrice; 
-    }
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+    public double getBasePrice() { return basePrice; }
+    public void setBasePrice(double basePrice) { this.basePrice = basePrice; }
 
+    // Each child class writes its own version
     public abstract String getCategory();
     public abstract double calculateCost(int guests);
     public abstract String toFileString();

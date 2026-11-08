@@ -7,17 +7,11 @@ public class CateringVendor extends Vendor {
     }
 
     @Override
-    public String getCategory() { 
-        return "CATERING"; 
-    }
+    public String getCategory() { return "CATERING"; }
 
     @Override
-    public double calculateCost(int guests) {
-        return getBasePrice() * guests; // Per-plate cost calculation
-    }
+    public double calculateCost(int guests) { return getBasePrice() * guests; }   // price per plate x guests
 
     @Override
-    public String toFileString() { 
-        return baseFields() + "|CATERING"; 
-    }
+    public String toFileString() { return baseFields() + "|CATERING"; }
 }

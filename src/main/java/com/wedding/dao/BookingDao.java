@@ -132,20 +132,6 @@ public class BookingDao {
         return false;
     }
 
-    // Next free ID
-    public String nextId() {
-        int max = 0;
-        for (Booking b : findAll()) {
-            if (b.getId() != null && b.getId().startsWith("B")) {
-                try {
-                    int num = Integer.parseInt(b.getId().substring(1));
-                    if (num > max) max = num;
-                } catch (NumberFormatException ignored) {}
-            }
-        }
-        return String.format("B%03d", max + 1);
-    }
-
     // DELETE
     public boolean delete(String id) {
         List<Booking> bookings = findAll();

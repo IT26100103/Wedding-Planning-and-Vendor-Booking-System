@@ -1,0 +1,79 @@
+/* Vows & Vendors - shared styles (owner: Home Page / Rishi) */
+:root{--ink:#26231f;--olive:#b6c46a;--forest:#3d4a1f;--sand:#f5f3ec;--line:#d9d6cc;--danger:#a63d2f}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Noto Sans',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:-.02em;line-height:1.05;margin:0 0 .5rem}
+h1{font-size:clamp(2rem,5vw,3.6rem)}h2{font-size:1.8rem}h3{font-size:1.2rem}
+a{color:var(--forest)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;border-bottom:1px solid var(--line);flex-wrap:wrap;gap:.5rem}
+.logo{font-family:'Playfair Display',serif;font-size:1.6rem;text-decoration:none;color:var(--ink)}
+.nav a{margin-left:1.2rem;text-decoration:none;color:var(--ink);font-size:.92rem}
+.nav a:hover{border-bottom:2px solid var(--olive)}
+.book-tab{position:fixed;right:0;top:0;height:300px;width:80px;background:var(--olive);color:#fff;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:center;font-weight:700;letter-spacing:.1em;text-decoration:none;z-index:9}
+main{max-width:1150px;margin:0 auto;padding:2.5rem 1.2rem 4rem}
+.lead{text-align:center;max-width:640px;margin:0 auto 2.5rem}
+.split{display:grid;grid-template-columns:1.3fr 1fr;gap:1.5rem}
+.frame{border:1px solid var(--line);padding:2.5rem;text-align:center}
+.frame.left{text-align:left}
+.photo{min-height:340px;background:linear-gradient(160deg,#8d9a52,#3d4a1f 70%);display:flex;align-items:flex-end;padding:1rem;color:#fff;font-size:.85rem}
+.photo.sand{background:linear-gradient(160deg,#e8dfc8,#b6a77a)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.card{border:1px solid var(--line);padding:1.4rem}
+.card .photo{min-height:140px;margin:-1.4rem -1.4rem 1rem}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.2rem;text-align:left}
+.form .full{grid-column:1/-1}
+label{display:block;font-size:.85rem;margin-bottom:.25rem}
+input,select,textarea{width:100%;padding:.65rem .75rem;border:1px solid var(--line);font:inherit;background:#fff}
+input:focus,select:focus,textarea:focus,a:focus,button:focus{outline:2px solid var(--forest);outline-offset:2px}
+.btn{display:inline-block;background:var(--forest);color:#fff;border:0;padding:.75rem 1.6rem;text-decoration:none;cursor:pointer;font:inherit}
+.btn:hover{background:#2a3515}.btn.alt{background:var(--olive);color:var(--ink)}.btn.danger{background:var(--danger)}.btn.sm{padding:.3rem .8rem;font-size:.85rem}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{padding:.7rem .6rem;border-bottom:1px solid var(--line);text-align:left}
+th{background:var(--sand);font-weight:600}
+.tbl{overflow-x:auto}
+.badge{padding:.15rem .6rem;font-size:.78rem;background:var(--sand);border:1px solid var(--line)}
+.badge.ok{background:#e4ecc0}.badge.warn{background:#f3e3b8}.badge.bad{background:#f0cfc9}
+.bar{height:10px;background:var(--sand);margin:.4rem 0 1rem}.bar span{display:block;height:100%;background:var(--olive)}
+.alert{padding:.8rem 1rem;border-left:4px solid var(--olive);background:var(--sand);margin-bottom:1.5rem;text-align:left}
+.alert.error{border-color:var(--danger)}
+.toolbar{display:flex;gap:.8rem;margin-bottom:1rem;flex-wrap:wrap}.toolbar input,.toolbar select{width:auto;flex:1;min-width:160px}
+footer{border-top:1px solid var(--line);padding:1.5rem 2rem;text-align:center;font-size:.85rem}
+@media(max-width:800px){.split,.form{grid-template-columns:1fr}.book-tab{height:auto;width:auto;top:auto;bottom:0;writing-mode:horizontal-tb;transform:none;left:0;padding:.8rem}.frame{padding:1.5rem}}
+
+/* v2 additions */
+[hidden]{display:none!important}
+.photo{background-size:cover;background-position:center}
+input[type=radio],input[type=checkbox]{width:auto}
+input[readonly]{background:var(--sand)}
+.hint{font-size:.82rem;color:#6b665c;margin:.25rem 0 0}
+.choice{display:flex;gap:1.4rem;flex-wrap:wrap}
+.choice label,.check{display:flex;align-items:center;gap:.5rem;margin:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1.5rem}
+.stat{border:1px solid var(--line);padding:1rem}
+.stat strong{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:1.8rem;line-height:1.1}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.rating{letter-spacing:.12em;color:var(--forest)}
+.review{border-bottom:1px solid var(--line);padding:1rem 0}
+.review p{margin:.25rem 0}
+.actions a{margin-right:.3rem}
+
+/* v3 additions: page video background, hero split, slideshow */
+.page-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:#fbf9f2}
+.page-bg video{width:100%;height:100%;object-fit:cover}
+.page-bg::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.66)}
+body{background:transparent}
+.card,.stat,.tbl{background:rgba(255,255,255,.92)}
+.hero-split{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch;margin:2rem 0}
+.hero-split>.frame{margin:0;display:flex;flex-direction:column;justify-content:center;padding:2rem 1.5rem}
+.hero-split>.frame h1{font-size:clamp(1.8rem,3.2vw,2.8rem)}
+.hero-split>.photo{margin:0;min-height:460px;position:relative;overflow:hidden;padding:0}
+.slides{position:absolute;inset:0}
+.slides span{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:slidefade 18s infinite}
+.slides span:nth-child(2){animation-delay:6s}
+.slides span:nth-child(3){animation-delay:12s}
+@keyframes slidefade{0%{opacity:0}8%{opacity:1}33%{opacity:1}41%{opacity:0}100%{opacity:0}}
+.gallery{margin-bottom:1.5rem}
+.gallery .photo{min-height:200px}
+@media(max-width:700px){.hero-split{grid-template-columns:1fr}.hero-split>.photo{min-height:300px}}
+@media (prefers-reduced-motion:reduce){.slides span{animation:none}.slides span:first-child{opacity:1}.page-bg video{display:none}
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/vows.css">
