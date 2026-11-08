@@ -1,5 +1,10 @@
-<<<<<<< HEAD
-<project xmlns="http://maven.apache.org/POM/4.0.0">
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wedding</groupId>
@@ -7,52 +12,30 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
+    <name>Guest List and RSVP Management - Vows &amp; Vendors</name>
+    <description>Guest List &amp; RSVP Management</description>
+
     <properties>
         <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.wedding</groupId>
-    <artifactId>05-guest-rsvp-management</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-
-    <name>Guest List and RSVP Management - Vows &amp; Vendors</name>
-    <description>Team Member 5 - Guest List &amp; RSVP Management</description>
-
-    <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <port>8085</port>
->>>>>>> origin/main
     </properties>
 
     <dependencies>
         <dependency>
-<<<<<<< HEAD
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-web-api</artifactId>
             <version>10.0.0</version>
-=======
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>6.0.0</version>
->>>>>>> origin/main
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
             <version>3.0.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
@@ -61,26 +44,18 @@
     </dependencies>
 
     <build>
-<<<<<<< HEAD
         <finalName>wedding-system</finalName>
-=======
-        <finalName>05-guest-rsvp-management</finalName>
->>>>>>> origin/main
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.4.0</version>
-<<<<<<< HEAD
-            </plugin>
-        </plugins>
-    </build>
-</project>
-=======
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.eclipse.jetty.ee10</groupId>
                 <artifactId>jetty-ee10-maven-plugin</artifactId>
@@ -94,5 +69,6 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
->>>>>>> origin/main
+```
