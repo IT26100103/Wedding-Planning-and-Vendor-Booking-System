@@ -1,0 +1,3 @@
+U001|Nimal Perera|nimal@example.com|nimal|pass123|USER|2027-02-14
+U002|Ayesha Fernando|ayesha@example.com|ayesha|pass123|USER|2027-03-20
+A001|Site Admin|admin@example.com|admin|admin123|ADMIN|FULL
