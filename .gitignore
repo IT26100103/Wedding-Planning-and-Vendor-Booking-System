@@ -41,7 +41,8 @@ release.properties
 Thumbs.db
 desktop.ini
 
-# Standalone exported bundles
+# Standalone exported bundles and reports
 Guest_List_and_RSVP_Management/
 Guest_List_and_RSVP_Management.zip
+Guest_List_and_RSVP_Management_Report.html
 *.zip
