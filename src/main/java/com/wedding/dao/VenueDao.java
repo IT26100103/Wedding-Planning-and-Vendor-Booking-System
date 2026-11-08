@@ -1,5 +1,20 @@
 package com.wedding.dao;
 
+/**
+ * ============================================================================
+ * DATA ACCESS OBJECT (DAO): VenueDao
+ * ============================================================================
+ * ARCHITECTURAL PATTERN: DAO (Data Access Object)
+ * - Manages persistent operations for wedding reception venues (Indoor & Outdoor).
+ * - Flat-file storage at '%USERPROFILE%/wedding-data/venues.txt'.
+ * - Polymorphically constructs IndoorVenue or OutdoorVenue instances from file records.
+ * - Supports capacity filtering (canHold), text search (name/location/type),
+ *   and full CRUD operations.
+ *
+ * @author Wedding Planning System Team
+ * @version 1.0
+ */
+
 import com.wedding.model.IndoorVenue;
 import com.wedding.model.OutdoorVenue;
 import com.wedding.model.Venue;
@@ -10,9 +25,14 @@ import java.util.List;
 
 public class VenueDao {
 
+    /** Persistent storage file name for venues */
     private static final String FILE_NAME = "venues.txt";
 
-    // READ ALL
+    /**
+     * Reads and returns all venues currently saved in the file store.
+     *
+     * @return List of all Venue objects
+     */
     public List<Venue> findAll() {
         List<Venue> list = new ArrayList<>();
         for (String line : FileUtil.readLines(FILE_NAME)) {
@@ -22,6 +42,12 @@ public class VenueDao {
         return list;
     }
 
+    /**
+     * Parses a pipe-delimited record from venues.txt into an IndoorVenue or OutdoorVenue instance.
+     *
+     * @param line Raw pipe-delimited text record
+     * @return Concrete Venue instance or null if parsing fails
+     */
     private Venue parse(String line) {
         String[] p = line.split("[|]");
         if (p.length < 7) return null;                 // damaged line
@@ -37,13 +63,23 @@ public class VenueDao {
         }
     }
 
+    /**
+     * Writes the list of venues back to the persistent file.
+     *
+     * @param venues List of Venue instances
+     */
     private void saveAll(List<Venue> venues) {
         List<String> lines = new ArrayList<>();
         for (Venue v : venues) lines.add(v.toFileString());
         FileUtil.writeLines(FILE_NAME, lines);
     }
 
-    // CREATE
+    /**
+     * Adds a new venue record if the ID is not already registered.
+     *
+     * @param v Venue object to add
+     * @return true if successfully saved, false if ID conflict exists
+     */
     public boolean add(Venue v) {
         List<Venue> venues = findAll();
         for (Venue x : venues) {
@@ -54,7 +90,12 @@ public class VenueDao {
         return true;
     }
 
-    // READ (search by name, location or type)
+    /**
+     * Searches venues matching a keyword against name, location, or type.
+     *
+     * @param keyword Search term
+     * @return Filtered list of matching venues
+     */
     public List<Venue> search(String keyword) {
         List<Venue> result = new ArrayList<>();
         String k = keyword.toLowerCase();
@@ -68,7 +109,12 @@ public class VenueDao {
         return result;
     }
 
-    // READ (venues big enough for the guest count)
+    /**
+     * Filters venues that can comfortably accommodate the required guest count.
+     *
+     * @param guests Minimum required seating capacity
+     * @return Venues with capacity >= guests
+     */
     public List<Venue> findByCapacity(int guests) {
         List<Venue> result = new ArrayList<>();
         for (Venue v : findAll()) {
@@ -77,6 +123,12 @@ public class VenueDao {
         return result;
     }
 
+    /**
+     * Finds a single venue by its unique ID.
+     *
+     * @param id Venue ID (e.g., VN01)
+     * @return Matching Venue instance, or null if not found
+     */
     public Venue findById(String id) {
         for (Venue v : findAll()) {
             if (v.getId().equals(id)) return v;
@@ -84,7 +136,12 @@ public class VenueDao {
         return null;
     }
 
-    // UPDATE
+    /**
+     * Updates an existing venue record.
+     *
+     * @param updated Modified Venue instance
+     * @return true if updated, false if not found
+     */
     public boolean update(Venue updated) {
         List<Venue> venues = findAll();
         for (int i = 0; i < venues.size(); i++) {
@@ -97,7 +154,12 @@ public class VenueDao {
         return false;
     }
 
-    // DELETE
+    /**
+     * Deletes a venue from persistent storage.
+     *
+     * @param id Venue identifier
+     * @return true if deleted, false if not found
+     */
     public boolean delete(String id) {
         List<Venue> venues = findAll();
         for (int i = 0; i < venues.size(); i++) {

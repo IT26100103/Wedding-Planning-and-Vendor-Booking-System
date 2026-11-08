@@ -1,3 +1,20 @@
+<%--
+============================================================================
+VIEW COMPONENT: rsvp.jsp
+============================================================================
+ARCHITECTURAL ROLE: MVC View (JSP Presentation Layer)
+- Public-facing RSVP confirmation portal.
+- Rendered by: RsvpServlet (GET /rsvp?id=G001)
+- Form Action: RsvpServlet (POST /rsvp)
+- Model attributes consumed:
+    * ${guest} : Guest instance matched by guest ID
+    * ${message} : Success confirmation notification
+    * ${error} : Validation error message
+- Purpose:
+    Allows invited wedding attendees to view their invitation status and
+    confirm or decline attendance online without requiring authentication.
+============================================================================
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
@@ -48,16 +65,16 @@
                     <div style="display: flex; gap: 1.5rem;">
                         <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
                             <input type="radio" name="rsvpStatus" value="ACCEPTED" required ${guest.rsvpStatus == 'ACCEPTED' ? 'checked' : ''}>
-                            <span style="font-weight: 600; color: #2e6616;">🎉 Happily Accepts</span>
+                            <span style="font-weight: 500; color: #166534;">Joyfully Accepts</span>
                         </label>
                         <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="radio" name="rsvpStatus" value="DECLINED" ${guest.rsvpStatus == 'DECLINED' ? 'checked' : ''}>
-                            <span style="font-weight: 600; color: #882218;">Regretfully Declines</span>
+                            <input type="radio" name="rsvpStatus" value="DECLINED" required ${guest.rsvpStatus == 'DECLINED' ? 'checked' : ''}>
+                            <span style="font-weight: 500; color: #991b1b;">Regretfully Declines</span>
                         </label>
                     </div>
                 </div>
 
-                <button type="submit" class="btn" style="width: 100%;">Submit RSVP Response</button>
+                <button type="submit" class="btn full" style="width: 100%;">Submit RSVP Response</button>
             </form>
         </div>
     </div>

@@ -1,5 +1,26 @@
 package com.wedding.servlet;
 
+/**
+ * ============================================================================
+ * CONTROLLER SERVLET: ReviewServlet
+ * ============================================================================
+ * ARCHITECTURAL PATTERN: MVC (Model-View-Controller)
+ * - Controller component handling review submissions, public listings, and admin moderation.
+ * - Mapped URL pattern: /reviews
+ * - Actions supported:
+ *     (default) - Browse public reviews, optionally filtered by vendor/venue (targetId)
+ *     new       - Display review submission form
+ *     admin     - Display admin review moderation dashboard (publish/hide/delete)
+ *     moderate  - Update review visibility (PUBLISHED or HIDDEN)
+ *     delete    - Remove review from system
+ * - Business logic:
+ *     Automatically detects if the submitting user has an active booking for the target;
+ *     instantiates a VerifiedReview (2x weight) if verified, or PublicReview (1x weight).
+ *
+ * @author Wedding Planning System Team
+ * @version 1.0
+ */
+
 import com.wedding.dao.BookingDao;
 import com.wedding.dao.ReviewDao;
 import com.wedding.dao.VendorDao;
@@ -30,6 +51,12 @@ public class ReviewServlet extends HttpServlet {
     private final VenueDao venueDao = new VenueDao();
     private final VendorDao vendorDao = new VendorDao();
 
+    /**
+     * Handles HTTP GET requests:
+     * - action=admin: loads all reviews for admin moderation view.
+     * - action=new: renders review creation form populated with available vendors/venues.
+     * - default: displays published reviews, calculating target average rating if filtered.
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -75,6 +102,12 @@ public class ReviewServlet extends HttpServlet {
         request.getRequestDispatcher("/review/review-list.jsp").forward(request, response);
     }
 
+    /**
+     * Handles HTTP POST requests:
+     * - action=moderate: toggles status between PUBLISHED and HIDDEN.
+     * - action=delete: deletes review record.
+     * - default: processes submission of a new review, determining polymorphism (Verified vs Public).
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -146,6 +179,9 @@ public class ReviewServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/reviews?targetId=" + targetId + "&submitted=1");
     }
 
+    /**
+     * Prepares available venues and vendors to populate selection dropdowns in the submit form.
+     */
     private void prepareReviewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -160,6 +196,9 @@ public class ReviewServlet extends HttpServlet {
         request.getRequestDispatcher("/review/review-submit.jsp").forward(request, response);
     }
 
+    /**
+     * Maps target IDs to friendly human-readable names for UI rendering.
+     */
     private void attachResourceNames(List<Review> list, HttpServletRequest request) {
         Map<String, String> names = new HashMap<>();
         for (Venue v : venueDao.findAll()) {
@@ -171,6 +210,9 @@ public class ReviewServlet extends HttpServlet {
         request.setAttribute("targetNames", names);
     }
 
+    /**
+     * Helper to safely extract and trim request parameters.
+     */
     private String read(HttpServletRequest req, String name) {
         String val = req.getParameter(name);
         return val == null ? "" : val.trim();

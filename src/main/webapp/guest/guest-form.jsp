@@ -1,3 +1,18 @@
+<%--
+============================================================================
+VIEW COMPONENT: guest-form.jsp
+============================================================================
+ARCHITECTURAL ROLE: MVC View (JSP Presentation Layer)
+- Rendered by: GuestServlet (GET /guests?action=new, GET /guests?action=edit)
+- Target POST: GuestServlet (POST /guests with action=save)
+- Model attributes consumed:
+    * ${guest} : Existing Guest instance when editing, or null when adding new
+    * ${error} : Validation error message string if form input is invalid
+- Dynamic Behavior:
+    * JavaScript toggleTableNumber() shows/hides table assignment field
+      based on polymorphic Guest type (VIP vs Regular).
+============================================================================
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
@@ -54,17 +69,20 @@
                 </div>
 
                 <div>
-                    <label for="phone">Phone Number (10 digits) *</label>
-                    <input type="text" id="phone" name="phone" value="${guest.phone}" required placeholder="0771234567">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" value="${guest.phone}" required placeholder="077-1234567">
                 </div>
 
-                <div class="full" id="tableGroup">
-                    <label for="tableNumber">Reserved Table Identifier (VIP only)</label>
-                    <input type="text" id="tableNumber" name="tableNumber" value="${tableNumber}" placeholder="e.g. T1, T2, Head Table">
+                <div class="full" id="tableGroup" style="display: none;">
+                    <label for="tableNumber">Assigned Table Number (VIP Only)</label>
+                    <input type="text" id="tableNumber" name="tableNumber" value="${guest.tableNumber}" placeholder="e.g. Table 01 or Head Table">
+                    <small style="color: var(--muted); font-size: 0.82rem; margin-top: 0.25rem; display: block;">
+                        Required for VIP guests to guarantee reserved seating near the couple.
+                    </small>
                 </div>
 
                 <div class="full" style="display: flex; gap: 0.8rem; margin-top: 1rem;">
-                    <button type="submit" class="btn" style="flex: 1;">Save Guest</button>
+                    <button type="submit" class="btn">Save Guest Invitation</button>
                     <a href="${pageContext.request.contextPath}/guests" class="btn outline">Cancel</a>
                 </div>
             </form>
@@ -72,19 +90,17 @@
     </div>
 </main>
 
-<jsp:include page="../includes/footer.jsp"/>
-
 <script>
 function toggleTableNumber() {
-    var type = document.getElementById('guestType').value;
-    var tg = document.getElementById('tableGroup');
-    if (type === 'VIP') {
-        tg.style.display = 'block';
-    } else {
-        tg.style.display = 'none';
-    }
+    var type = document.getElementById("guestType").value;
+    var group = document.getElementById("tableGroup");
+    group.style.display = (type === "VIP") ? "block" : "none";
 }
+// Run on initial page load to reflect current selection
 toggleTableNumber();
 </script>
+
+<jsp:include page="../includes/footer.jsp"/>
+
 </body>
 </html>
