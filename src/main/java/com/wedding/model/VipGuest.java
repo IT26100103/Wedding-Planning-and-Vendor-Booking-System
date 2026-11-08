@@ -1,7 +1,5 @@
 package com.wedding.model;
 
-<<<<<<< HEAD
-=======
 import com.wedding.util.FileUtil;
 
 /**
@@ -17,7 +15,6 @@ import com.wedding.util.FileUtil;
  * @author Wedding Planning System Team
  * @version 1.0
  */
->>>>>>> origin/main
 public class VipGuest extends Guest {
     private String tableNumber;
 
@@ -31,21 +28,6 @@ public class VipGuest extends Guest {
     public void setTableNumber(String tableNumber) { this.tableNumber = tableNumber; }
 
     @Override
-<<<<<<< HEAD
-    public String getGuestType() {
-        return "VIP";
-    }
-
-    @Override
-    public String getSeatingInfo() {
-        return "Reserved table " + tableNumber;
-    }
-
-    // A VIP line has one extra field, so this child changes the parent version
-    @Override
-    public String toFileLine() {
-        return super.toFileLine() + "|" + tableNumber;
-=======
     public String getType() { return "VIP"; }
 
     @Override
@@ -59,6 +41,5 @@ public class VipGuest extends Guest {
     @Override
     public String toFileLine() {
         return "VIP|" + baseFields() + "|" + FileUtil.clean(tableNumber);
->>>>>>> origin/main
     }
 }

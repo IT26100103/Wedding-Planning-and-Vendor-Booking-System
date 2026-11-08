@@ -1,7 +1,5 @@
 package com.wedding.model;
 
-<<<<<<< HEAD
-=======
 import com.wedding.util.FileUtil;
 
 /**
@@ -16,17 +14,12 @@ import com.wedding.util.FileUtil;
  * @author Wedding Planning System Team
  * @version 1.0
  */
->>>>>>> origin/main
 public abstract class Guest {
     private String guestId;
     private String fullName;
     private String email;
     private String phone;
-<<<<<<< HEAD
-    private String rsvpStatus;   // PENDING, ACCEPTED or DECLINED
-=======
     private String rsvpStatus; // PENDING, ACCEPTED, DECLINED
->>>>>>> origin/main
 
     public Guest(String guestId, String fullName, String email, String phone, String rsvpStatus) {
         this.guestId = guestId;
@@ -36,10 +29,6 @@ public abstract class Guest {
         this.rsvpStatus = rsvpStatus;
     }
 
-<<<<<<< HEAD
-    // Getters and setters: this is encapsulation
-=======
->>>>>>> origin/main
     public String getGuestId() { return guestId; }
     public void setGuestId(String guestId) { this.guestId = guestId; }
     public String getFullName() { return fullName; }
@@ -51,15 +40,6 @@ public abstract class Guest {
     public String getRsvpStatus() { return rsvpStatus; }
     public void setRsvpStatus(String rsvpStatus) { this.rsvpStatus = rsvpStatus; }
 
-<<<<<<< HEAD
-    // Abstract methods: every child class must write its own version
-    public abstract String getGuestType();
-    public abstract String getSeatingInfo();
-
-    // Turns this object into one line of text for guests.txt
-    public String toFileLine() {
-        return getGuestType() + "|" + guestId + "|" + fullName + "|" + email + "|" + phone + "|" + rsvpStatus;
-=======
     public abstract String getType();
     public abstract String toFileLine();
 
@@ -78,6 +58,5 @@ public abstract class Guest {
     protected String baseFields() {
         return guestId + "|" + FileUtil.clean(fullName) + "|" + FileUtil.clean(email)
                 + "|" + FileUtil.clean(phone) + "|" + FileUtil.clean(rsvpStatus);
->>>>>>> origin/main
     }
 }

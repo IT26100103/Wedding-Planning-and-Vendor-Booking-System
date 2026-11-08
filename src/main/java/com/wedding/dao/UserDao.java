@@ -1,7 +1,5 @@
 package com.wedding.dao;
 
-<<<<<<< HEAD
-=======
 /**
  * ============================================================================
  * DATA ACCESS OBJECT (DAO): UserDao
@@ -18,7 +16,6 @@ package com.wedding.dao;
  */
 
 
->>>>>>> origin/main
 import com.wedding.model.AdminUser;
 import com.wedding.model.RegularUser;
 import com.wedding.model.User;
@@ -109,8 +106,6 @@ public class UserDao {
         return false;
     }
 
-<<<<<<< HEAD
-=======
     // Next ID generator: U001, U002 ... or A001, A002 ...
     public String nextId(String role) {
         String prefix = "ADMIN".equalsIgnoreCase(role) ? "A" : "U";
@@ -126,7 +121,6 @@ public class UserDao {
         return String.format("%s%03d", prefix, max + 1);
     }
 
->>>>>>> origin/main
     // LOGIN
     public User login(String username, String password) {
         User u = findByUsername(username);

@@ -1,7 +1,5 @@
 package com.wedding.model;
 
-<<<<<<< HEAD
-=======
 /**
  * ============================================================================
  * CONCRETE CLASS: RegularGuest
@@ -14,7 +12,6 @@ package com.wedding.model;
  * @author Wedding Planning System Team
  * @version 1.0
  */
->>>>>>> origin/main
 public class RegularGuest extends Guest {
 
     public RegularGuest(String guestId, String fullName, String email, String phone, String rsvpStatus) {
@@ -22,15 +19,6 @@ public class RegularGuest extends Guest {
     }
 
     @Override
-<<<<<<< HEAD
-    public String getGuestType() {
-        return "REGULAR";
-    }
-
-    @Override
-    public String getSeatingInfo() {
-        return "General seating";
-=======
     public String getType() { return "REGULAR"; }
 
     @Override
@@ -41,6 +29,5 @@ public class RegularGuest extends Guest {
     @Override
     public String toFileLine() {
         return "REGULAR|" + baseFields();
->>>>>>> origin/main
     }
 }

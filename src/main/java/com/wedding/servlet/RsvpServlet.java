@@ -1,7 +1,5 @@
 package com.wedding.servlet;
 
-<<<<<<< HEAD
-=======
 /**
  * ============================================================================
  * CONTROLLER SERVLET: RsvpServlet
@@ -19,7 +17,6 @@ package com.wedding.servlet;
  */
 
 
->>>>>>> origin/main
 import com.wedding.dao.GuestDao;
 import com.wedding.model.Guest;
 import jakarta.servlet.ServletException;

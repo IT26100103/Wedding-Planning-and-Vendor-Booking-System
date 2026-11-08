@@ -1,7 +1,5 @@
 package com.wedding.model;
 
-<<<<<<< HEAD
-=======
 /**
  * ============================================================================
  * ABSTRACT BASE CLASS: User
@@ -15,7 +13,6 @@ package com.wedding.model;
  * @author Wedding Planning System Team
  * @version 1.0
  */
->>>>>>> origin/main
 public abstract class User {
     private String id;
     private String name;
@@ -40,11 +37,6 @@ public abstract class User {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-<<<<<<< HEAD
-    // Each child class writes its own version
-    public abstract String getRole();
-    public abstract String toFileString();
-=======
     /**
      * Polymorphic method: Returns the user's role ("USER" or "ADMIN").
      */
@@ -58,6 +50,5 @@ public abstract class User {
     /**
      * Console display for debugging.
      */
->>>>>>> origin/main
     public abstract void display();
 }
