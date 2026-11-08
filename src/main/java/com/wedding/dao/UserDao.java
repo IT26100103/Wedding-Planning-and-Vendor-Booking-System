@@ -75,7 +75,15 @@ public class UserDao {
     // READ (search by username)
     public User findByUsername(String username) {
         for (User u : findAll()) {
-            if (u.getUsername().equals(username)) return u;
+            if (u.getUsername().equalsIgnoreCase(username)) return u;
+        }
+        return null;
+    }
+
+    // READ (search by email)
+    public User findByEmail(String email) {
+        for (User u : findAll()) {
+            if (u.getEmail().equalsIgnoreCase(email)) return u;
         }
         return null;
     }
@@ -122,8 +130,11 @@ public class UserDao {
     }
 
     // LOGIN
-    public User login(String username, String password) {
-        User u = findByUsername(username);
+    public User login(String usernameOrEmail, String password) {
+        User u = findByUsername(usernameOrEmail);
+        if (u == null) {
+            u = findByEmail(usernameOrEmail);
+        }
         if (u != null && u.getPassword().equals(password)) return u;
         return null;
     }

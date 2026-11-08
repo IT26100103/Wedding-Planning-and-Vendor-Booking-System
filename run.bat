@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 cd /d "%~dp0"
 
 echo ===============================================================================
-echo Starting Guest List and RSVP Management on http://localhost:8085
+echo Starting Wedding Planning and Vendor Booking System on http://localhost:8085
 echo ===============================================================================
 
 rem Ensure data directory exists
@@ -25,7 +25,10 @@ if exist "sample-data" (
 rem Check Java
 where java >nul 2>&1
 if errorlevel 1 (
-    if exist "C:\Program Files\Eclipse Adoptium\jdk-21.0.13.9-hotspot" (
+    if exist "C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.5\jbr" (
+        set "JAVA_HOME=C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.5\jbr"
+        set "PATH=!JAVA_HOME!\bin;!PATH!"
+    ) else if exist "C:\Program Files\Eclipse Adoptium\jdk-21.0.13.9-hotspot" (
         set "JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.13.9-hotspot"
         set "PATH=!JAVA_HOME!\bin;!PATH!"
     ) else if exist "%ProgramFiles%\Java\jdk-21" (
@@ -38,10 +41,12 @@ rem Check Maven
 set "MVN_CMD=mvn"
 where mvn >nul 2>&1
 if errorlevel 1 (
-    if exist "%USERPROFILE%\.m2\wrapper\dists\apache-maven-3.9.16-bin\5grr65jo27hi51sujmtcldfovl\apache-maven-3.9.16\bin\mvn.cmd" (
-        set "MVN_CMD=%USERPROFILE%\.m2\wrapper\dists\apache-maven-3.9.16-bin\5grr65jo27hi51sujmtcldfovl\apache-maven-3.9.16\bin\mvn.cmd"
-    ) else if exist "C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.5\plugins\maven\lib\maven3\bin\mvn.cmd" (
+    if exist "C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.5\plugins\maven\lib\maven3\bin\mvn.cmd" (
         set "MVN_CMD=C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.5\plugins\maven\lib\maven3\bin\mvn.cmd"
+    ) else if exist "%USERPROFILE%\.m2\wrapper\dists\apache-maven-3.9.11-bin\6mqf5t809d9geo83kj4ttckcbc\apache-maven-3.9.11\bin\mvn.cmd" (
+        set "MVN_CMD=%USERPROFILE%\.m2\wrapper\dists\apache-maven-3.9.11-bin\6mqf5t809d9geo83kj4ttckcbc\apache-maven-3.9.11\bin\mvn.cmd"
+    ) else if exist "%USERPROFILE%\.m2\wrapper\dists\apache-maven-3.9.16-bin\5grr65jo27hi51sujmtcldfovl\apache-maven-3.9.16\bin\mvn.cmd" (
+        set "MVN_CMD=%USERPROFILE%\.m2\wrapper\dists\apache-maven-3.9.16-bin\5grr65jo27hi51sujmtcldfovl\apache-maven-3.9.16\bin\mvn.cmd"
     )
 )
 
