@@ -86,16 +86,4 @@
     ph.style.backgroundSize = 'cover';
     ph.style.backgroundPosition = 'center';
   });
-  // Toast helper
-  window.showToast = function (msg) {
-    var t = document.getElementById('vowsToast') || document.querySelector('.toast');
-    if (!t) {
-      t = document.createElement('div');
-      t.className = 'toast';
-      document.body.appendChild(t);
-    }
-    t.textContent = msg;
-    t.hidden = false;
-    setTimeout(function () { t.hidden = true; }, 4000);
-  };
 })();
