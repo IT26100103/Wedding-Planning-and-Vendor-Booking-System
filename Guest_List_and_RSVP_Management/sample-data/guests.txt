@@ -1,4 +1,0 @@
-REGULAR|G001|Nimal Perera|nimal@example.com|0771234567|PENDING
-VIP|G002|Kamal Silva|kamal@example.com|0711234567|ACCEPTED|T1
-REGULAR|G003|Ayesha Fernando|ayesha@example.com|0761234567|DECLINED
-VIP|G004|Dilani Jayawardena|dilani@example.com|0751234567|PENDING|T2

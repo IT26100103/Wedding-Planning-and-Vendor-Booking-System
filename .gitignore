@@ -40,3 +40,8 @@ release.properties
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Standalone exported bundles
+Guest_List_and_RSVP_Management/
+Guest_List_and_RSVP_Management.zip
+*.zip
