@@ -2,6 +2,21 @@ package com.wedding.model;
 
 import com.wedding.util.FileUtil;
 
+<<<<<<< HEAD
+=======
+/**
+ * ============================================================================
+ * CONCRETE CLASS: RegularUser
+ * ============================================================================
+ * OOP CONCEPT: INHERITANCE & POLYMORPHISM
+ * - Inherits from User base class.
+ * - Adds specialization: weddingDate (planned wedding ceremony date).
+ * - Implements polymorphic getRole() ("USER") and toFileString().
+ *
+ * @author Wedding Planning System Team
+ * @version 1.0
+ */
+>>>>>>> origin/main
 public class RegularUser extends User {
     private String weddingDate;
 
@@ -20,13 +35,22 @@ public class RegularUser extends User {
     @Override
     public String toFileString() {
         return getId() + "|" + FileUtil.clean(getName()) + "|" + FileUtil.clean(getEmail()) + "|"
+<<<<<<< HEAD
                 + FileUtil.clean(getUsername()) + "|" + FileUtil.clean(getPassword())
                 + "|USER|" + FileUtil.clean(weddingDate);
+=======
+                + FileUtil.clean(getUsername()) + "|" + FileUtil.clean(getPassword()) + "|USER|"
+                + FileUtil.clean(weddingDate);
+>>>>>>> origin/main
     }
 
     @Override
     public void display() {
+<<<<<<< HEAD
         System.out.println("[USER] " + getId() + " | " + getName() + " | " + getEmail()
                 + " | Wedding date: " + weddingDate);
+=======
+        System.out.println("[User] " + getId() + " | " + getName() + " (" + getEmail() + ") | Wedding: " + weddingDate);
+>>>>>>> origin/main
     }
 }

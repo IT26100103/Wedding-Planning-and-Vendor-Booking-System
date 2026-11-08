@@ -1,5 +1,21 @@
 package com.wedding.model;
 
+<<<<<<< HEAD
+=======
+/**
+ * ============================================================================
+ * ABSTRACT BASE CLASS: User
+ * ============================================================================
+ * OOP CONCEPT: ABSTRACTION & ENCAPSULATION
+ * - Abstraction: Defines common identity and authentication credentials for all users
+ *   while leaving role-specific behavior to derived classes.
+ * - Encapsulation: All fields are private with public getters and setters.
+ * - Polymorphism: getRole() and toFileString() are abstract, implemented by child classes.
+ *
+ * @author Wedding Planning System Team
+ * @version 1.0
+ */
+>>>>>>> origin/main
 public abstract class User {
     private String id;
     private String name;
@@ -24,8 +40,24 @@ public abstract class User {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
+<<<<<<< HEAD
     // Each child class writes its own version
     public abstract String getRole();
     public abstract String toFileString();
+=======
+    /**
+     * Polymorphic method: Returns the user's role ("USER" or "ADMIN").
+     */
+    public abstract String getRole();
+
+    /**
+     * Polymorphic method: Formats the user record as a pipe-delimited string.
+     */
+    public abstract String toFileString();
+
+    /**
+     * Console display for debugging.
+     */
+>>>>>>> origin/main
     public abstract void display();
 }

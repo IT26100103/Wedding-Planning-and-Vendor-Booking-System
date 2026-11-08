@@ -1,0 +1,4 @@
+R001|U001|V001|5|Food was excellent and on time|PUBLISHED|VERIFIED|B001
+R002|U002|V001|3|Good but a bit expensive|PUBLISHED|PUBLIC|-
+R003|U003|V003|4|Lovely photos|PUBLISHED|PUBLIC|-
+R004|U004|VN001|1|Rude comment here|HIDDEN|PUBLIC|-

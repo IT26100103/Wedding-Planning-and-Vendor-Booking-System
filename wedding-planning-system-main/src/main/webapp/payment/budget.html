@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Budget | Vows &amp; Vendors</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+<style>/* Vows & Vendors - shared styles (owner: Home Page / Rishi) */
+:root{--ink:#26231f;--olive:#b6c46a;--forest:#3d4a1f;--sand:#f5f3ec;--line:#d9d6cc;--danger:#a63d2f}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Noto Sans',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:-.02em;line-height:1.05;margin:0 0 .5rem}
+h1{font-size:clamp(2rem,5vw,3.6rem)}h2{font-size:1.8rem}h3{font-size:1.2rem}
+a{color:var(--forest)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;border-bottom:1px solid var(--line);flex-wrap:wrap;gap:.5rem}
+.logo{font-family:'Playfair Display',serif;font-size:1.6rem;text-decoration:none;color:var(--ink)}
+.nav a{margin-left:1.2rem;text-decoration:none;color:var(--ink);font-size:.92rem}
+.nav a:hover{border-bottom:2px solid var(--olive)}
+.book-tab{position:fixed;right:0;top:0;height:300px;width:80px;background:var(--olive);color:#fff;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:center;font-weight:700;letter-spacing:.1em;text-decoration:none;z-index:9}
+main{max-width:1150px;margin:0 auto;padding:2.5rem 1.2rem 4rem}
+.lead{text-align:center;max-width:640px;margin:0 auto 2.5rem}
+.split{display:grid;grid-template-columns:1.3fr 1fr;gap:1.5rem}
+.frame{border:1px solid var(--line);padding:2.5rem;text-align:center}
+.frame.left{text-align:left}
+.photo{min-height:340px;background:linear-gradient(160deg,#8d9a52,#3d4a1f 70%);display:flex;align-items:flex-end;padding:1rem;color:#fff;font-size:.85rem}
+.photo.sand{background:linear-gradient(160deg,#e8dfc8,#b6a77a)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.card{border:1px solid var(--line);padding:1.4rem}
+.card .photo{min-height:140px;margin:-1.4rem -1.4rem 1rem}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.2rem;text-align:left}
+.form .full{grid-column:1/-1}
+label{display:block;font-size:.85rem;margin-bottom:.25rem}
+input,select,textarea{width:100%;padding:.65rem .75rem;border:1px solid var(--line);font:inherit;background:#fff}
+input:focus,select:focus,textarea:focus,a:focus,button:focus{outline:2px solid var(--forest);outline-offset:2px}
+.btn{display:inline-block;background:var(--forest);color:#fff;border:0;padding:.75rem 1.6rem;text-decoration:none;cursor:pointer;font:inherit}
+.btn:hover{background:#2a3515}.btn.alt{background:var(--olive);color:var(--ink)}.btn.danger{background:var(--danger)}.btn.sm{padding:.3rem .8rem;font-size:.85rem}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{padding:.7rem .6rem;border-bottom:1px solid var(--line);text-align:left}
+th{background:var(--sand);font-weight:600}
+.tbl{overflow-x:auto}
+.badge{padding:.15rem .6rem;font-size:.78rem;background:var(--sand);border:1px solid var(--line)}
+.badge.ok{background:#e4ecc0}.badge.warn{background:#f3e3b8}.badge.bad{background:#f0cfc9}
+.bar{height:10px;background:var(--sand);margin:.4rem 0 1rem}.bar span{display:block;height:100%;background:var(--olive)}
+.alert{padding:.8rem 1rem;border-left:4px solid var(--olive);background:var(--sand);margin-bottom:1.5rem;text-align:left}
+.alert.error{border-color:var(--danger)}
+.toolbar{display:flex;gap:.8rem;margin-bottom:1rem;flex-wrap:wrap}.toolbar input,.toolbar select{width:auto;flex:1;min-width:160px}
+footer{border-top:1px solid var(--line);padding:1.5rem 2rem;text-align:center;font-size:.85rem}
+@media(max-width:800px){.split,.form{grid-template-columns:1fr}.book-tab{height:auto;width:auto;top:auto;bottom:0;writing-mode:horizontal-tb;transform:none;left:0;padding:.8rem}.frame{padding:1.5rem}}
+
+:root{color-scheme:light}
+[hidden]{display:none!important}
+.toast{position:fixed;left:50%;bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:#fff;padding:.75rem 1.2rem;max-width:min(92vw,520px);z-index:20;font-size:.9rem}
+.book-tab{padding-block:0}
+@media(max-width:800px){.book-tab{padding-bottom:calc(.8rem + env(safe-area-inset-bottom,0px))}}
+</style></head><body><header class="topbar"><a class="logo" href="../index.html">Vows &amp; Vendors</a>
+<nav class="nav">
+<a href="../index.html">Home</a>
+<a href="../wedding/wedding-details.html">My wedding</a>
+<a href="../vendor/vendor-list.html">Vendors</a>
+<a href="../booking/booking-status.html">Bookings</a>
+<a href="../payment/budget.html">Budget</a>
+<a href="../user/login.html">Sign in</a>
+</nav></header>
+<a class="book-tab" href="../booking/booking-form.html">Book your wedding</a>
+<main>
+<h1>Wedding budget</h1>
+<div class="alert">Total budget LKR 2,500,000 &middot; Spent LKR 1,350,000 &middot; Remaining LKR 1,150,000</div>
+<div class="grid"><div class="card"><h3>Photography</h3><div class="bar"><span style="width:90%"></span></div><p>LKR 180,000 of 200,000</p></div>
+<div class="card"><h3>Catering</h3><div class="bar"><span style="width:64%"></span></div><p>LKR 320,000 of 500,000</p></div>
+<div class="card"><h3>Venue</h3><div class="bar"><span style="width:50%"></span></div><p>LKR 850,000 of 1,700,000</p></div></div>
+<h2 style="margin-top:2rem">Set budget</h2>
+<form class="form" method="post" action="#preview"><div><label>Total budget (LKR)</label><input type="number" name="totalBudget" value="2500000" required></div>
+<div><label>Category</label><select name="category"><option>Photography</option><option>Catering</option><option>Venue</option></select></div>
+<div><label>Category limit (LKR)</label><input type="number" name="limit" required></div><div style="align-self:end"><button class="btn">Save budget</button></div></form>
+
+</main>
+<footer>Vows &amp; Vendors &middot; SE1020 OOP Project &middot; frontend preview</footer>
+<script>(function(){
+var t=document.createElement('div');t.className='toast';t.hidden=true;document.body.appendChild(t);
+var h;function note(m){t.textContent=m;t.hidden=false;clearTimeout(h);h=setTimeout(function(){t.hidden=true},3500);}
+document.addEventListener('submit',function(e){e.preventDefault();var f=e.target;
+ var p=f.querySelector('[name=password]'),c=f.querySelector('[name=confirmPassword]');
+ if(p&&c&&p.value!==c.value){note('Passwords do not match.');return;}
+ note('Preview only. This form connects to the servlet once the backend is built.');});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href="#preview"]');
+ if(a){e.preventDefault();note('Preview only. This action connects to the servlet once the backend is built.');}});
+var q=document.getElementById('tableFilter');
+if(q){q.addEventListener('input',function(){var v=q.value.toLowerCase();
+ document.querySelectorAll('tbody tr').forEach(function(r){r.style.display=r.textContent.toLowerCase().indexOf(v)>-1?'':'none';});});}
+})();</script><script src="../assets/js/vows.js"></script>
+</body></html>

@@ -1,5 +1,27 @@
 package com.wedding.servlet;
 
+<<<<<<< HEAD
+=======
+/**
+ * ============================================================================
+ * CONTROLLER SERVLET: GuestServlet
+ * ============================================================================
+ * ARCHITECTURAL PATTERN: MVC (Model-View-Controller)
+ * - Controller component managing wedding guest invitations and seating charts.
+ * - Mapped URL pattern: /guests
+ * - Actions supported:
+ *     list   - Display guest directory with RSVP status badges (Accepted/Declined/Pending)
+ *     new    - Display guest creation form (Regular vs VIP guest with table assignment)
+ *     edit   - Display edit form for existing guest
+ *     save   - Add or update guest record in guests.txt
+ *     delete - Remove guest from invitation list
+ *
+ * @author Wedding Planning System Team
+ * @version 1.0
+ */
+
+
+>>>>>>> origin/main
 import com.wedding.dao.GuestDao;
 import com.wedding.model.Guest;
 import com.wedding.model.RegularGuest;

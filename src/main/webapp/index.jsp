@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head><title>Wedding System</title></head>
@@ -8,3 +9,8 @@
 <script src="assets/js/vows.js"></script>
 </body>
 </html>
+=======
+<%
+    response.sendRedirect(request.getContextPath() + "/guests");
+%>
+>>>>>>> origin/main

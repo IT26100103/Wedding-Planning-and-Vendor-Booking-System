@@ -1,5 +1,25 @@
 package com.wedding.servlet;
 
+<<<<<<< HEAD
+=======
+/**
+ * ============================================================================
+ * CONTROLLER SERVLET: RsvpServlet
+ * ============================================================================
+ * ARCHITECTURAL PATTERN: MVC (Model-View-Controller)
+ * - Public-facing controller allowing invited guests to search their invitation
+ *   and submit their RSVP attendance confirmation online.
+ * - Mapped URL pattern: /rsvp
+ * - Actions supported:
+ *     GET  - Display public RSVP lookup search and response form
+ *     POST - Update guest RSVP status to ACCEPTED or DECLINED
+ *
+ * @author Wedding Planning System Team
+ * @version 1.0
+ */
+
+
+>>>>>>> origin/main
 import com.wedding.dao.GuestDao;
 import com.wedding.model.Guest;
 import jakarta.servlet.ServletException;

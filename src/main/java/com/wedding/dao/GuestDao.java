@@ -1,5 +1,22 @@
 package com.wedding.dao;
 
+<<<<<<< HEAD
+=======
+/**
+ * ============================================================================
+ * DATA ACCESS OBJECT (DAO): GuestDao
+ * ============================================================================
+ * ARCHITECTURAL PATTERN: DAO (Data Access Object)
+ * - Manages guest list and RSVP records in '%USERPROFILE%/wedding-data/guests.txt'.
+ * - Handles polymorphic reconstitution of RegularGuest vs VipGuest instances.
+ * - Supports guest searching, RSVP status updates, seating assignment, and auto ID generation (G001).
+ *
+ * @author Wedding Planning System Team
+ * @version 1.0
+ */
+
+
+>>>>>>> origin/main
 import com.wedding.model.Guest;
 import com.wedding.model.RegularGuest;
 import com.wedding.model.VipGuest;
@@ -25,8 +42,14 @@ public class GuestDao {
     }
 
     public Guest findById(String id) {
+<<<<<<< HEAD
         for (Guest guest : findAll()) {
             if (guest.getGuestId().equals(id)) {
+=======
+        if (id == null) return null;
+        for (Guest guest : findAll()) {
+            if (guest.getGuestId().equalsIgnoreCase(id.trim())) {
+>>>>>>> origin/main
                 return guest;
             }
         }
@@ -35,8 +58,15 @@ public class GuestDao {
 
     public List<Guest> searchByName(String keyword) {
         List<Guest> result = new ArrayList<>();
+<<<<<<< HEAD
         for (Guest guest : findAll()) {
             if (guest.getFullName().toLowerCase().contains(keyword.toLowerCase())) {
+=======
+        if (keyword == null) return findAll();
+        String q = keyword.trim().toLowerCase();
+        for (Guest guest : findAll()) {
+            if (guest.getFullName().toLowerCase().contains(q)) {
+>>>>>>> origin/main
                 result.add(guest);
             }
         }
@@ -54,7 +84,11 @@ public class GuestDao {
     public boolean update(Guest updated) {
         List<Guest> guests = findAll();
         for (int i = 0; i < guests.size(); i++) {
+<<<<<<< HEAD
             if (guests.get(i).getGuestId().equals(updated.getGuestId())) {
+=======
+            if (guests.get(i).getGuestId().equalsIgnoreCase(updated.getGuestId())) {
+>>>>>>> origin/main
                 guests.set(i, updated);
                 saveAll(guests);
                 return true;
@@ -65,9 +99,16 @@ public class GuestDao {
 
     // ---------- DELETE ----------
     public boolean delete(String id) {
+<<<<<<< HEAD
         List<Guest> guests = findAll();
         for (int i = 0; i < guests.size(); i++) {
             if (guests.get(i).getGuestId().equals(id)) {
+=======
+        if (id == null) return false;
+        List<Guest> guests = findAll();
+        for (int i = 0; i < guests.size(); i++) {
+            if (guests.get(i).getGuestId().equalsIgnoreCase(id.trim())) {
+>>>>>>> origin/main
                 guests.remove(i);
                 saveAll(guests);
                 return true;
@@ -80,9 +121,20 @@ public class GuestDao {
     public String nextId() {
         int max = 0;
         for (Guest guest : findAll()) {
+<<<<<<< HEAD
             int number = Integer.parseInt(guest.getGuestId().substring(1));
             if (number > max) {
                 max = number;
+=======
+            if (guest.getGuestId() != null && guest.getGuestId().startsWith("G")) {
+                try {
+                    int number = Integer.parseInt(guest.getGuestId().substring(1));
+                    if (number > max) {
+                        max = number;
+                    }
+                } catch (NumberFormatException ignored) {
+                }
+>>>>>>> origin/main
             }
         }
         return String.format("G%03d", max + 1);
