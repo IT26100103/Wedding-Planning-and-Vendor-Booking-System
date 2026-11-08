@@ -42,6 +42,9 @@ public abstract class User {
      */
     public abstract String getRole();
 
+    public String getWeddingDate() { return ""; }
+    public String getPermissionLevel() { return ""; }
+
     /**
      * Polymorphic method: Formats the user record as a pipe-delimited string.
      */

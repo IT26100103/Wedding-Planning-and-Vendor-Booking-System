@@ -85,7 +85,7 @@ public class ReviewDao {
         return result;
     }
 
-    // Average rating (polymorphism: getWeight() is 1 for public, 2 for verified)
+    // Average rating 
     public double getAverageRating(String targetId) {
         double sum = 0;
         int totalWeight = 0;
@@ -95,6 +95,20 @@ public class ReviewDao {
         }
         if (totalWeight == 0) return 0;
         return sum / totalWeight;
+    }
+
+    // Next free ID
+    public String nextId() {
+        int max = 0;
+        for (Review r : findAll()) {
+            if (r.getId() != null && r.getId().startsWith("R")) {
+                try {
+                    int num = Integer.parseInt(r.getId().substring(1));
+                    if (num > max) max = num;
+                } catch (NumberFormatException ignored) {}
+            }
+        }
+        return String.format("R%03d", max + 1);
     }
 
     // UPDATE (user edits own review)
@@ -111,7 +125,7 @@ public class ReviewDao {
         return false;
     }
 
-    // UPDATE (admin moderation: HIDDEN or PUBLISHED)
+    // UPDATE (admin moderation)
     public boolean moderateReview(String id, String newStatus) {
         if (!newStatus.equals("PUBLISHED") && !newStatus.equals("HIDDEN")) return false;
         Review r = findById(id);
@@ -120,7 +134,7 @@ public class ReviewDao {
         return update(r);
     }
 
-    // DELETE (user or admin)
+    // DELETE 
     public boolean delete(String id) {
         List<Review> reviews = findAll();
         for (int i = 0; i < reviews.size(); i++) {
